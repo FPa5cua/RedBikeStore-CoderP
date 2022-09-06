@@ -1,5 +1,16 @@
 # Getting Started with Create React App
 
+react-router-domv6.3.0
+firebase v9.9.2
+
+react-bootstrap v2.5.0
+styled-components v5.3.5
+react-icons
+spinners-react
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
