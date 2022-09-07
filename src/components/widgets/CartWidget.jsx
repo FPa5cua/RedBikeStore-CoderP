@@ -1,11 +1,11 @@
 //native_react
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 //external
 import { RiShoppingCartFill } from "react-icons/ri";
 import styled from 'styled-components';
 //components
 import CartProvider from '../../context/CartContext';
-import {CartContext, useCart} from '../../context/CartContext'
+import { CartContext } from '../../context/CartContext'
 
 
 const StyledWidget = styled(RiShoppingCartFill)
@@ -23,13 +23,19 @@ height: 1.1rem;
 `
 
 const CartWidget = () => {
-  /* const cartValue = useContext(CartContext)
-  const {QuantInCard} = useCart() */
 
-  return (
+  const cartValue = useContext(CartContext)
+  /* const [fill, setFill]= useState() */
+
+console.log(cartValue)
+  
+return (
   <>
-    <StyledWidget/> 
-    {/* <StyledCount>{cartValue.QuantInCard}</StyledCount> */}
+    <div>
+      <StyledWidget/> 
+      {cartValue.cart.length > 0 && <StyledCount>{cartValue.cart.length}</StyledCount>}
+    </div>
+    
   </>
   )
 }

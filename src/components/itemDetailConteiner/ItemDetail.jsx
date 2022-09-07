@@ -23,7 +23,7 @@ const ItemDetail = ({item}) => {
 
     const ToAdd =()=>{
         setMessage(`Agregaste: ${count + ' unidades de ' + item.name },   al carrito.`)
-        let addedToCart = {
+        const addedToCart = {
             id,
             name,
             price,
@@ -31,11 +31,19 @@ const ItemDetail = ({item}) => {
             quantity: count,
             TotalCost: item.price*count
         }
-        console.log('addedTocart Content:', addedToCart)
+        /* console.log('addedTocart Content:', addedToCart) */
         setGoToCart(true)
         AddToCart(addedToCart)
+        /* console.log(addedToCart) */
     } 
-    
+
+/*  console.log(CartContext)
+    console.log(count)
+    console.log(AddToCart)
+    console.log(ToAdd)
+    console.log(goToCart)
+    console.log(item) */
+
     return (
         <>
             <div>
@@ -70,7 +78,6 @@ const ItemDetail = ({item}) => {
                                     </Button>
                                     </div>)
                                 }
-                                
                         </Card.Body>
                     </Card>
                 </Row>

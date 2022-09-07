@@ -1,5 +1,6 @@
 //native_react
 import React from 'react'
+
 //external
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -12,6 +13,7 @@ import ItemDetailConteiner from './components/itemDetailConteiner/ItemDetailCont
 import Cart from './components/cart/Cart';
 import Contact from './pages/Contact'
 import  CartProvider  from './context/CartContext';
+import CheckOut from './components/checkOut/CheckOut';
 
 function App() {
   
@@ -26,20 +28,12 @@ function App() {
             <Route path='/item/:id' element={<ItemDetailConteiner/>}></Route>
             <Route path='/category/:type' element={<ItemListConteiner/>}></Route>
             <Route path='/Cart' element={<Cart/>}></Route>
+            <Route path='/CheckOut' element={<CheckOut/>}></Route>
             <Route path='/Contact' element={<Contact/>}></Route>
             <Route path='*' element={<ItemListConteiner/>}></Route>
           </Routes>
         </CartProvider>
       </BrowserRouter>
-        {/* <NavBar/>
-        <Routes>
-          <Route path='/' element={<ItemListConteiner/>}></Route>
-          <Route path='/item/:id' element={<ItemDetailConteiner/>}></Route>
-          <Route path='/category/:type' element={<ItemListConteiner/>}></Route>
-          <Route path='/Cart' element={<Cart/>}></Route>
-          <Route path='/Contact' element={<Contact/>}></Route>
-          <Route path='*' element={<ItemListConteiner/>}></Route>
-        </Routes> */}
     </>
   );
 }

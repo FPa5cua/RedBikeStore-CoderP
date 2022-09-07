@@ -32,7 +32,7 @@ const CartProvider =({children})=> {
     const ClearCart =()=> {
         setCart([])
         itemsInTotal(0)
-        totalAmount(0)
+        totalAmount(0) 
     }
     
     const RemoveFromCart =(id)=> {
@@ -60,14 +60,13 @@ const CartProvider =({children})=> {
         RemoveFromCart, 
         ProdsInCart,
         TotalCost,
-        
     }
 
     return(
-        <CartContext.Provider value={{cartValue}}>
+        <CartContext.Provider value={cartValue}>
             {children}
         </CartContext.Provider>
     )
 }
 
-export default  CartProvider 
+export default   CartProvider  

@@ -16,22 +16,27 @@ const Cart = () => {
   const navigate = useNavigate()
 
 
-
-/*   if (cart.length === 0) {
+  
+  if (cart.length === 0) {
     return (
       <>
         <h2>No has agregado nada a tu carrito, aun</h2>
       </>
     )
-  } */
+  }
   return (
-    <div>
-     {cart.map((item) => (
-        <CartProducts key={item.id} item={item} />
-      ))}
-    <span><ha>Total: ${TotalCost}</ha></span>
-    <Button variant="danger" onClick={ClearCart}>Vaciar Carrito</Button>
+    <>
+      <div>
+        {cart.map((item) => (
+          <CartProducts key={item.id} item={item} />
+        ))}
+      <span>Total: ${TotalCost}</span>
+      <Button variant="danger" onClick={ClearCart}>Vaciar Carrito</Button>
+      </div>
+      <div> 
+      <Button variant= "primary" onClick= {() => navigate('/CheckOut')}> Confirmar Compra </Button>
     </div>
+  </>
   )
 }
 
