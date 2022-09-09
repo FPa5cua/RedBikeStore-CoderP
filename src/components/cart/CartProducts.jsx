@@ -1,26 +1,37 @@
 //native_react
 import React, { useContext } from 'react'
 //external
-import { useNavigate } from 'react-router-dom'
-import Button from 'react-bootstrap/Button';
+import Button from 'react-bootstrap/Button'
+import Figure from 'react-bootstrap/Figure'
+import ListGroup from 'react-bootstrap/ListGroup'
+import Table from 'react-bootstrap/Table';
+import Badge from 'react-bootstrap/Badge'
 //components
 import { CartContext } from '../../context/CartContext'
 
 
 const CartProducts = (item) => {
 
-    const { RemoveFromCart } = useContext(CartContext)
-    console.log(item)
+    const context = useContext(CartContext)
+    const DeleteProdct = (id) => {
+        context.RemoveFromCart(id)
+    }
 
     return (
     <div>
-            <img src={item.item.img}/>
-            <p>{item.item.name}</p>
-            <p>{item.item.price}</p>
-            <p>{item.item.quantity}</p>
-            <p>{item.item.totalAmount}</p>
-            <button variant="danger" 
-            onClick={()=>RemoveFromCart(item.id)}>Quitar este Producto</button>
+        <ListGroup horizontal>
+            <ListGroup.Item >
+                <Figure>
+                    <Figure.Image width={171} height={180}
+                    src={item.img}/>
+                </Figure>
+            </ListGroup.Item>
+            <ListGroup.Item>{item.name}</ListGroup.Item>
+            <ListGroup.Item>U$D: {item.price}</ListGroup.Item>
+            <ListGroup.Item>{item.quantity}</ListGroup.Item>
+            <ListGroup.Item>{item.totalAmount}</ListGroup.Item>
+            <Button variant="danger" size='sm' onClick={() => DeleteProdct(item.id)}>Quitar del carrito</Button>
+        </ListGroup>
     </div>
     )
 }

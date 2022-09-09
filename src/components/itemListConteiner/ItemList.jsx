@@ -6,7 +6,6 @@ import Row from 'react-bootstrap/Row'
 import Item from "./Item"
 
 const ItemList = ({itemList}) => {
-    console.log("ItemList presente")
 
     return (
 

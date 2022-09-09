@@ -1,11 +1,13 @@
 //native_react
-import React, { useContext, useState } from 'react'
+import React, { useContext,} from 'react'
 //external
 import { RiShoppingCartFill } from "react-icons/ri";
 import styled from 'styled-components';
+import Badge from 'react-bootstrap/Badge';
+import Button from 'react-bootstrap/Button';
 //components
-import CartProvider from '../../context/CartContext';
 import { CartContext } from '../../context/CartContext'
+/* import CartProvider from '../../context/CartContext'; */
 
 
 const StyledWidget = styled(RiShoppingCartFill)
@@ -14,28 +16,22 @@ color: black;
 height: 1.5rem;
 width: 1.5rem; 
 `
-const StyledCount = styled.h4
-`
-color: black;
-padding: .5rem
-margin: .3rem
-height: 1.1rem;
-`
 
 const CartWidget = () => {
 
-  const cartValue = useContext(CartContext)
-  /* const [fill, setFill]= useState() */
-
-console.log(cartValue)
+  const context = useContext(CartContext)
   
 return (
   <>
     <div>
-      <StyledWidget/> 
-      {cartValue.cart.length > 0 && <StyledCount>{cartValue.cart.length}</StyledCount>}
+      <Button variant="light">
+        <StyledWidget/> 
+        <Badge  pill bg="success">
+          {context.cart.length > 0 && 
+          context.cart.length }
+        </Badge>
+        </Button>
     </div>
-    
   </>
   )
 }

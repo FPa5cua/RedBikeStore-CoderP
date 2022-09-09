@@ -11,10 +11,8 @@ import ItemList from './ItemList'
 
 
 const ItemListConteiner = () => {
-    console.log("ItemListConteiner presente")
-    
-    const { type }= useParams()
 
+    const { type }= useParams()
 
     const [itemList, setItemList]= useState([])
     const [loading, setLoading]= useState(true)
@@ -33,7 +31,6 @@ const ItemListConteiner = () => {
                         ...fbItem.data()
                     }
                 })
-                console.log(fbItemList)
                 setItemList(fbItemList)
             })
             .catch(()=> console.log('pasaron cosas :/ intentalo mas tarde'))

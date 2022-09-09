@@ -30,29 +30,30 @@ const CheckOut = () => {
     })
   }
 
-  const SendBuyRequest = (event) =>{
-    event.preventDefault()
-    const SellTicket = collection(db, "Sells")
-    addDoc(SellTicket, {
-      items: context.cart,
-      total: context.TotalCost,
-      date: serverTimestamp()
-    })
-    .then ((res) => {
-      setOrderId(res.id)
-      if(res) {
-        context.ClearCart()
-      }
-    })
-    .catch ((error)=> console.log(error))
+  const Order ={
+    products: context.cart.map(item => ({
+      id: item.id,
+      title: item.name,
+      price: item.price,
+      quantity: item.quantity,
+      })),
+    totalBill: context.TotalCost
   }
 
+  const OrderInfo = { ClientData, Order } 
 
+  const SendOrder = (event) =>{
+    event.preventDefault()
+    const OrderCollection = collection(db, "sales")
+    addDoc(OrderCollection, OrderInfo)
+    .then (({ id }) => console.log(id))
+
+  }
 
   return (
     <>
-    <div class="sectionTitle">CheckOut</div>
-    {!orderId ? 
+    <div className="sectionTitle">CheckOut</div>
+    {!SendOrder ? 
     (<form>
         <InputGroup className="mb-3">
           <InputGroup.Text name='name' onChange={ClientData}>Nombre de Usuario</InputGroup.Text>
@@ -91,7 +92,7 @@ const CheckOut = () => {
           <option value="PayPal">PayPal</option>
           <option value="Efectivo">Efectivo</option>
         </Form.Select>
-        <Button variant="primary" onClick={SendBuyRequest}>
+        <Button variant="primary" onClick={Order}>
             Confirmar Compra
         </Button>
       </form>) 

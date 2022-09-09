@@ -1,6 +1,5 @@
 //native_react
 import React from 'react'
-
 //external
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -8,11 +7,12 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 //components
 import './App.css';
 import NavBar from './components/navBar/NavBar'
+import Home from './pages/Home'
 import ItemListConteiner from './components/itemListConteiner/ItemListConteiner';
 import ItemDetailConteiner from './components/itemDetailConteiner/ItemDetailConteiner';
 import Cart from './components/cart/Cart';
 import Contact from './pages/Contact'
-import  CartProvider  from './context/CartContext';
+import CartProvider  from './context/CartContext';
 import CheckOut from './components/checkOut/CheckOut';
 
 function App() {
@@ -30,7 +30,7 @@ function App() {
             <Route path='/Cart' element={<Cart/>}></Route>
             <Route path='/CheckOut' element={<CheckOut/>}></Route>
             <Route path='/Contact' element={<Contact/>}></Route>
-            <Route path='*' element={<ItemListConteiner/>}></Route>
+            <Route path='*' element={<Home/>}></Route>
           </Routes>
         </CartProvider>
       </BrowserRouter>

@@ -7,7 +7,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
 import { GiDutchBike,  } from 'react-icons/gi'
 //components
-/* import ItemDisponibility from '../itemDisponibility/ItemDisponibility' */
+
 
 const Item = ({item}) => {
     const { id, img, name, brand, category, price, stock }= item
@@ -23,9 +23,6 @@ const Item = ({item}) => {
             <h4>{name}</h4>
             <Card.Text>{brand}</Card.Text>
             <Card.Text>Categoria: {category}</Card.Text>
-            <Card.Text>
-                {/* <ItemDisponibility stock= {stock}/> */}
-            </Card.Text>
             <Card.Text>$USD{' '}{price}</Card.Text>
                 <Link className='link-d' to={`/item/${id}`}>
                 <Button variant="primary" >
